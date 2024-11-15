@@ -1,0 +1,13 @@
+---
+const { platform, username } = Astro.props;
+---
+<a href={platform === 'bluesky' ? `https://${username}.bsky.social` : `https://www.${platform}.com/${username}`}>{platform.charAt(0).toUpperCase() + platform.slice(1)}</a>
+
+<style>
+    a {
+        padding: 0.5rem 1rem;
+        color: white;
+        background-color: #1d9559;
+        text-decoration: none;
+    }
+</style>
