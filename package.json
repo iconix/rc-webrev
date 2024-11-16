@@ -1,5 +1,5 @@
 {
-  "name": "astro",
+  "name": "webrev",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -7,10 +7,13 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "astro build && wrangler pages deploy",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/cloudflare": "^11.2.0",
     "@astrojs/rss": "^4.0.9",
     "@astrojs/svelte": "^5.7.3",
     "astro": "^4.16.11",
@@ -20,6 +23,10 @@
     "typescript": "^5.6.3"
   },
   "devDependencies": {
-    "@astrojs/ts-plugin": "^1.10.4"
-  }
+    "@astrojs/ts-plugin": "^1.10.4",
+    "@cloudflare/workers-types": "^4.20241112.0",
+    "@sveltejs/vite-plugin-svelte": "^4.0.0-next.6",
+    "wrangler": "^3.87.0"
+  },
+  "overrides": {"@sveltejs/vite-plugin-svelte": "^4.0.0-next.6"}
 }

@@ -18,6 +18,9 @@ export async function getStaticPaths({ paginate }) {
     return paginate(sortedStream, { pageSize: 10 });
 }
 
+// prerender the page as static HTML during the build process
+export const prerender = true;
+
 const pageTitle = 'The stream';
 
 const { page } = Astro.props;

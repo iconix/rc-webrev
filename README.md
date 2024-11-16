@@ -57,6 +57,11 @@ $ npm install typed.js
 ```
 
 social media icons
-```
+```bash
 $  npm install iconify-icon
+```
+
+deploying to cloudflare pages
+```bash
+$ npm run deploy
 ```
