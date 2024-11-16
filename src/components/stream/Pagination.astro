@@ -1,0 +1,48 @@
+---
+interface Props {
+    currentPage: number;
+    totalPages: number;
+}
+
+const { currentPage, totalPages } = Astro.props;
+---
+<div class='pageControls'>
+    {currentPage > 1 &&
+        <a href={`/page/${currentPage - 1}`} class='pageButton'>←</a>
+    }
+    {currentPage < totalPages &&
+        <a href={`/page/${currentPage + 1}`} class='pageButton'>→</a>
+    }
+</div>
+
+<style>
+    .pageControls {
+        float: right;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        gap: .75em;
+    }
+
+    .pageControls a {
+        color: var(--primary-text);
+        text-decoration: none;
+    }
+
+    a.pageButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5em;
+        height: 1.5em;
+        width: 1.5em;
+        border-radius: 50%;
+        background: var(--secondary-bg);
+    }
+
+    a.pageButton:hover {
+        background: var(--hover-bg);
+        text-decoration: none;
+    }
+</style>

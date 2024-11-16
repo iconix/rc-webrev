@@ -51,6 +51,12 @@ svelte support
 $ npx astro add svelte
 ```
 
+dynamic typing support on home page
 ```bash
 $ npm install typed.js
+```
+
+social media icons
+```
+$  npm install iconify-icon
 ```

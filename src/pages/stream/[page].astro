@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+
+import Header from '../../components/base/Header.astro';
+import Pagination from '../../components/stream/Pagination.astro';
+import Update from '../../components/stream/Update.astro';
+import StreamLayout from '../../layouts/StreamLayout.astro';
+import Now from '../../components/stream/Now.astro';
+
+export async function getStaticPaths({ paginate }) {
+    const stream = await getCollection('stream', ({ data }) => {
+        return import.meta.env.PROD ? !data.draft : true;
+    });
+    const sortedStream = stream.sort((a, b) =>
+        new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+    );
+
+    return paginate(sortedStream, { pageSize: 10 });
+}
+
+const pageTitle = 'The stream';
+
+const { page } = Astro.props;
+---
+
+<StreamLayout pageTitle={pageTitle}>
+    <Header />
+    <h1>The stream</h1>
+    <main>
+        <Now />
+        {page.data.map(update => (
+            <Update entry={update} />
+        ))}
+        <Pagination currentPage={page.currentPage} totalPages={page.lastPage} />
+    </main>
+</StreamLayout>

@@ -1,0 +1,31 @@
+---
+const { platform, username } = Astro.props;
+
+const platforms = {
+  github: {
+    icon: 'tabler:brand-github',
+    url: `https://github.com/${username}`
+  },
+  bluesky: {
+    icon: 'tabler:brand-bluesky',
+    url: `https://${username}.bsky.social`
+  }
+};
+
+const { icon, url } = platforms[platform.toLowerCase()];
+---
+
+<script>
+  import 'iconify-icon';
+</script>
+
+<a href={url} target='_blank' rel='noopener noreferrer'>
+ <iconify-icon icon={icon} width=16></iconify-icon>
+ {platform.charAt(0).toUpperCase() + platform.slice(1)}
+</a>
+
+<style>
+  a {
+    text-decoration: none;
+  }
+</style>

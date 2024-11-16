@@ -1,0 +1,154 @@
+---
+import { getCollection } from 'astro:content';
+
+const nowContent = await getCollection('now');
+const latestNow = nowContent.sort((a, b) =>
+  new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+)[0];
+const pubDate = new Date(latestNow.data.pubDate);
+
+// TODO: share with Update.astro
+function formatDate(date: Date) {
+    return new Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+    }).format(date);
+}
+
+const { Content } = await latestNow.render();
+
+// TODO: open all links here in new tab
+---
+{latestNow && (
+    <div class='now-section'>
+        <div class='now-header'>
+            <h2>Now</h2>
+            <time>{formatDate(pubDate)}</time>
+        </div>
+        <div class='now-content'>
+            <Content />
+        </div>
+    </div>
+)}
+
+<style>
+    .now-section {
+        padding: 1.25rem;
+        margin: 1.5rem 0;
+        background: var(--primary-bg);
+        border: 1px solid var(--secondary-bg);
+        border-radius: 6px;
+        position: relative;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    /* accent bar */
+    .now-section::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: var(--accent-color);
+        border-radius: 4px 0 0 4px;
+    }
+
+    .now-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--secondary-bg);
+    }
+
+    .now-header h2 {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--primary-text);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .now-header h2::after {
+        content: '';
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: #10b981;
+        border-radius: 50%;
+        box-shadow: 0 0 0 rgba(16, 185, 129, 0.6);
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+        }
+        70% {
+            box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+        }
+    }
+
+    .now-header time {
+        font-size: 0.875rem;
+        color: var(--secondary-text);
+        font-weight: 500;
+    }
+
+    .now-content {
+        color: var(--primary-text);
+        line-height: 1.5;
+        font-size: 1rem;
+    }
+
+    .now-content :global(p:first-of-type) {
+        margin-top: 0;
+    }
+
+    .now-content :global(p:last-of-type) {
+        margin-bottom: 0;
+    }
+
+    .dark .now-section {
+        background: var(--dark-primary-bg);
+        border-color: var(--dark-secondary-bg);
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .dark .now-header {
+        border-bottom-color: var(--dark-secondary-bg);
+    }
+
+    .now-section:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: all 0.2s ease;
+    }
+
+    .dark .now-section:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.24);
+    }
+
+    @media (max-width: 640px) {
+        .now-section {
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .now-header h2 {
+            font-size: 1.25rem;
+        }
+
+        .now-content {
+            font-size: 1rem;
+        }
+    }
+</style>

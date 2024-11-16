@@ -2,7 +2,7 @@ import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 
 export async function GET(context) {
-  const posts = await getCollection('posts');
+  const posts = await getCollection('blog');
 
   return rss({
     title: 'Nadja Rhodes | Blog',
@@ -12,7 +12,7 @@ export async function GET(context) {
       title: post.data.title,
       pubDate: post.data.pubDate,
       description: post.data.description,
-      link: `/posts/${post.slug}/`,
+      link: `/blog/${post.slug}/`,
     })),
     customData: `<language>en-us</language>`,
   });

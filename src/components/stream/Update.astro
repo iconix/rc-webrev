@@ -1,0 +1,133 @@
+---
+const { entry } = Astro.props;
+
+const { Content } = await entry.render();
+const frontmatter = entry.data;
+
+function formatDate(date: Date) {
+    return new Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+    }).format(date);
+}
+
+function formatTime(date: Date) {
+    // this language tag also sets hourCycle to 'h23'
+    return new Intl.DateTimeFormat('en-US-u-hc-h23', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+    }).format(date);
+}
+
+function getRelativeTime(date: Date) {
+    const formatter = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+    const daysAgo = Math.floor((date.getTime() - Date.now()) / (1000 * 60 * 60 * 24));
+    return formatter.format(daysAgo, 'days');
+}
+
+const formattedDate = formatDate(frontmatter.pubDate);
+const formattedTime = formatTime(frontmatter.pubDate);
+const relativeTime = getRelativeTime(frontmatter.pubDate);
+---
+<div class='update'>
+    <div class='update-t'>
+        <a href={`/on/${formattedDate}`} class='datestamp'>{formattedDate}</a>
+        <span class='clockstamp'>{formattedTime}</span>
+        <div class='relativestamp'>{relativeTime}</div>
+    </div>
+    <div class='update-s'>
+        {frontmatter.title && <p><strong>{frontmatter.title}</strong></p>}
+        <Content />
+    </div>
+</div>
+
+<style>
+    .update {
+        margin-bottom: 2.5em;
+        word-break: break-word;
+    }
+
+    .update .update-t {
+        font-size: 14px;
+        color: var(--secondary-text);
+        margin-bottom: -.5em;
+    }
+
+    .update .update-t a {
+        color: var(--secondary-text);
+        text-decoration: none;
+    }
+
+    .update .update-t a:hover {
+        text-decoration: underline;
+    }
+
+    .update-t .relativestamp {
+        margin-bottom: 6px;
+    }
+
+    .update h1, .update h2, .update h3 {
+        margin: .75em 0 .5em 0;
+        line-height: 1.4em;
+    }
+
+    .update h2 { font-size: 1.5em; }
+    .update h3 { font-size: 1.2em; }
+
+    .update p, .update li {
+        line-height: 1.5em;
+        max-width: 64ch;
+    }
+
+    .update pre, .update code {
+        background: var(--hover-bg);
+        font-size: 1em;
+        font-family: 'IBM Plex Mono', 'Menlo', 'Monaco', monospace;
+        word-break: initial;
+    }
+
+    .update pre {
+        border-radius: 6px;
+        box-sizing: border-box;
+        padding: 12px 8px;
+        overflow-x: auto;
+    }
+
+    .update code {
+        padding: 1px 5px;
+        border-radius: 6px;
+    }
+
+    .update blockquote {
+        margin: 0;
+        border-left: 4px solid var(--active-bg);
+        padding-left: 1em;
+        display: block;
+    }
+
+    @media only screen and (min-width: 760px) {
+        .update {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 1.5em;
+        }
+        .update-t {
+            flex-grow: 0;
+            flex-shrink: 0;
+            width: 134px;
+            margin-top: 3px;
+        }
+        .update-s {
+            width: 0;
+            flex-grow: 1;
+            flex-shrink: 1;
+        }
+        .update-s :first-child {
+            margin-top: 0;
+        }
+    }
+</style>

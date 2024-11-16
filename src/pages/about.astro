@@ -2,30 +2,15 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/global.css';
 
-const pageTitle = "About Me";
-
-const identity = {
-  firstName: "Nadja",
-  occupation: "Machine Learning Engineer",
-};
-
-const occupationColor = "#1d9559";
-const fontWeight = "bold";
-const textCase = "lowercase";
+const pageTitle = 'About Me';
 
 const atRecurse = true;
 const employed = false;
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<p>I am a <span class="occupation">{identity.occupation}</span> who also likes to code for the web and aspires to make more computer art.</p>
-	{atRecurse && <p>I am currently at the <a href="https://www.recurse.com/">Recurse Center</a>.</p>}
+	<p>I am a machine learning engineer who also likes to code for the web and aspires to make more computer art.</p>
+	{atRecurse && <p>I am currently at the <a href='https://www.recurse.com/' target='_blank' rel='noopener noreferrer'>Recurse Center</a>. 10/10 would recommend.</p>}
+	<p>See what I am up to <a href='/stream'>~now</a>.</p>
 	{employed && <p>Opinions expressed are mine.</p>}
-	<style is:global define:vars={{occupationColor, fontWeight, textCase}}>
-		.occupation {
-			color: var(--occupationColor);
-			font-weight: var(--fontWeight);
-    		text-transform: var(--textCase);
-		}
-	</style>
 </BaseLayout>
