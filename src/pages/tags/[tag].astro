@@ -16,9 +16,6 @@ export async function getStaticPaths() {
     });
 }
 
-// prerender the page as static HTML during the build process
-export const prerender = true;
-
 const { tag } = Astro.params;
 const { posts: posts } = Astro.props;
 ---

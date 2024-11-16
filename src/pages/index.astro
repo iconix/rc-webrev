@@ -7,7 +7,7 @@ const pageTitle = '';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<Headline client:load messages={[
+	<Headline client:only='svelte' messages={[
 		'slow is smooth, and smooth is fast.',
 		'an ml engineer.',
 		'a creative coder.',
