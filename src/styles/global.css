@@ -1,11 +1,12 @@
 /* variables */
 :root {
-    --primary-bg: #fdfeff;
-    --primary-text: #111111;
-    --secondary-bg: #eeeef3;
+    --primary-bg: #fefefa;      /* subtle, warm yellow */
+    --primary-text: #0f172a;
+    --secondary-bg: #fdfdf0;
     --secondary-text: #9b9b9b;
-    --hover-bg: #dde1e5;
-    --active-bg: #cdcfd2;
+    --hover-bg: #faf5e1;
+    --active-bg: #fde047;
+    --accent-color: #10b981;
 
     /* dark mode colors */
     --dark-primary-bg: #091838;
@@ -36,11 +37,25 @@ html {
 body {
     color: var(--primary-text);
     background: var(--primary-bg);
+    background: linear-gradient(
+        135deg,
+        var(--primary-bg) 0%,
+        #fff 100%
+    );
     line-height: 1.5;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     border-bottom: 8px solid var(--primary-text);
+}
+
+.dark body {
+    background: var(--dark-primary-bg);
+    background: linear-gradient(
+        135deg,
+        var(--dark-primary-bg) 0%,
+        #0c1d3d 100%
+    );
 }
 
 header, h1, main, footer {

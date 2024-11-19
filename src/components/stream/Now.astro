@@ -36,10 +36,12 @@ const { Content } = await latestNow.render();
     .now-section {
         padding: 1.25rem;
         margin: 1.5rem 0;
-        background: var(--primary-bg);
-        border: 1px solid var(--secondary-bg);
+        border: 1px solid #eeeef3;
         border-radius: 6px;
         position: relative;
+
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(8px);
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
 
@@ -51,7 +53,6 @@ const { Content } = await latestNow.render();
         top: 0;
         bottom: 0;
         width: 4px;
-        background: var(--accent-color);
         border-radius: 4px 0 0 4px;
     }
 
@@ -61,7 +62,7 @@ const { Content } = await latestNow.render();
         align-items: center;
         margin-bottom: 0.75rem;
         padding-bottom: 0.75rem;
-        border-bottom: 1px solid var(--secondary-bg);
+        border-bottom: 1px solid #eeeef3;
     }
 
     .now-header h2 {
@@ -79,7 +80,7 @@ const { Content } = await latestNow.render();
         display: inline-block;
         width: 6px;
         height: 6px;
-        background: #10b981;
+        background: var(--accent-color);
         border-radius: 50%;
         box-shadow: 0 0 0 rgba(16, 185, 129, 0.6);
         animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -117,13 +118,14 @@ const { Content } = await latestNow.render();
         margin-bottom: 0;
     }
 
-    .dark .now-section {
+    html.dark .now-section {
         background: var(--dark-primary-bg);
         border-color: var(--dark-secondary-bg);
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+        backdrop-filter: none;
     }
 
-    .dark .now-header {
+    html.dark .now-header {
         border-bottom-color: var(--dark-secondary-bg);
     }
 
