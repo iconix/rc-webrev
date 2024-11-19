@@ -1,0 +1,95 @@
+---
+import { getCollection } from 'astro:content';
+import StreamLayout from '../../../layouts/StreamLayout.astro';
+import Header from '../../../components/base/Header.astro';
+import Update from '../../../components/stream/Update.astro';
+
+export async function getStaticPaths() {
+    function getDateKey(date: Date) {
+        return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
+    }
+
+    const stream = await getCollection('stream');
+
+    const streamByDate = stream.reduce((acc, update) => {
+        const dateKey = getDateKey(new Date(update.data.pubDate));
+        if (!acc[dateKey]) {
+        acc[dateKey] = [];
+        }
+        acc[dateKey].push(update);
+        return acc;
+    }, {} as Record<string, typeof stream>);
+
+    // create paths for each unique date
+    return Object.entries(streamByDate).flatMap(([dateKey, dateStream]) => {
+        const [year, month, day] = dateKey.split('/');
+
+        const sortedStream = dateStream.sort((a, b) =>
+        new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+        );
+
+        return [
+        {
+            params: { date: `${year}/${month}/${day}` },
+            props: { stream: sortedStream }
+        }
+        ];
+    });
+}
+
+const { stream } = Astro.props;
+
+console.log(stream);
+
+// TODO: share with Update.astro
+function formatDate(date: Date) {
+  return new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(date);
+}
+---
+
+<StreamLayout pageTitle={`Stream on ${formatDate(new Date(stream[0].data.pubDate))}`}>
+    <Header />
+    <main>
+        <div class='stream-header'>
+            <h1>Stream on {formatDate(new Date(stream[0].data.pubDate))}</h1>
+            <a href='/stream' class='back-link'>← Main Stream</a>
+        </div>
+        {stream.map(update => (
+            <Update entry={update} />
+        ))}
+    </main>
+</StreamLayout>
+
+<style>
+    .stream-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin: 2rem 0;
+    }
+
+    .back-link {
+        color: var(--secondary-text);
+        text-decoration: none;
+        font-size: 0.925rem;
+    }
+
+    .back-link:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+        .stream-header {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .stream-header h1 {
+            margin: 0;
+        }
+    }
+</style>

@@ -27,13 +27,21 @@ function getRelativeTime(date: Date) {
     return formatter.format(daysAgo, 'days');
 }
 
+function formatUrlDate(date: Date) {
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1);
+  const day = date.getDate();
+  return `/stream/on/${year}/${month}/${day}`;
+}
+
 const formattedDate = formatDate(frontmatter.pubDate);
 const formattedTime = formatTime(frontmatter.pubDate);
 const relativeTime = getRelativeTime(frontmatter.pubDate);
+const urlDate = formatUrlDate(frontmatter.pubDate);
 ---
 <div class='update'>
     <div class='update-t'>
-        <a href={`/on/${formattedDate}`} class='datestamp'>{formattedDate}</a>
+        <a href={urlDate} class='datestamp'>{formattedDate}</a>
         <span class='clockstamp'>{formattedTime}</span>
         <div class='relativestamp'>{relativeTime}</div>
     </div>
