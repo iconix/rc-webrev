@@ -253,6 +253,30 @@ img {
     border-radius: 6px;
 }
 
+/* external link icons */
+
+.external-link-icon {
+    position: relative;
+    top: 2px;
+    display: inline-flex
+}
+
+.external-link-icon img {
+    margin: 0 0 0 2px;
+    height: 1rem;
+    width: 1rem
+}
+
+/* heading link icons */
+
+.heading-link img {
+    margin: 0;
+    margin-left: -40px;
+    padding-right: 8px;
+    height: 1rem;
+    width: 1rem
+}
+
 /* specifically here for embedding p5.js sketches */
 
 .iframe-container {
