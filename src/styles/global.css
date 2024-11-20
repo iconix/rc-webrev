@@ -100,65 +100,6 @@ p, li {
     line-height: 1.5em;
 }
 
-ul {
-    padding-left: 2rem;
-    margin: 1.2em 0;
-    list-style-type: none;
-}
-
-ul li {
-    position: relative;
-    line-height: 1.5;
-    margin-bottom: 0.5em;
-    color: var(--primary-text);
-    display: flex;         /* Add flex to handle link + timestamp */
-    align-items: baseline; /* Align text nicely */
-    gap: 1em;             /* Space between link and timestamp */
-}
-
-/* custom bullet points */
-ul li::before {
-    content: "";
-    position: absolute;
-    left: -1.5rem;
-    top: 0.6em;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: var(--secondary-text);
-}
-
-ul li a {
-    color: var(--primary-text);
-    text-decoration: none;
-    flex-grow: 1;
-}
-
-ul li a:hover {
-    text-decoration: underline;
-}
-
-/* timestamp styling */
-ul li time {
-    color: var(--secondary-text);
-    font-size: 0.875em;   /* slightly smaller than the link */
-    white-space: nowrap;  /* keep timestamp on one line */
-    flex-shrink: 0;       /* prevent timestamp from shrinking */
-}
-
-.dark ul li time {
-    color: var(--dark-secondary-text);
-}
-
-/* nested lists */
-ul ul {
-    margin: 0.5em 0;       /* Less margin for nested lists */
-}
-
-.dark ul li::before {
-    background-color: var(--dark-secondary-text);
-}
-
 /* links and buttons */
 a {
     color: var(--primary-text);

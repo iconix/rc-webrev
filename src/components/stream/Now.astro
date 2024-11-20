@@ -1,30 +1,19 @@
 ---
 import { getCollection } from 'astro:content';
+import { formatDate } from '../../utils/params.ts';
 
 const nowContent = await getCollection('now');
 const latestNow = nowContent.sort((a, b) =>
-  new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+  b.data.pubDate.getTime() - a.data.pubDate.getTime()
 )[0];
-const pubDate = new Date(latestNow.data.pubDate);
-
-// TODO: share with Update.astro
-function formatDate(date: Date) {
-    return new Intl.DateTimeFormat('en-US', {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-    }).format(date);
-}
 
 const { Content } = await latestNow.render();
-
-// TODO: open all links here in new tab
 ---
 {latestNow && (
     <div class='now-section'>
         <div class='now-header'>
             <h2>Now</h2>
-            <time>{formatDate(pubDate)}</time>
+            <time>last updated: {formatDate(latestNow.data.pubDate)}</time>
         </div>
         <div class='now-content'>
             <Content />

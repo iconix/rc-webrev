@@ -3,13 +3,27 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BlogPost from '../components/blog/BlogPost.astro';
 import '../styles/global.css';
+import { getBlogPath } from '../utils/params.ts';
 
 const posts = await getCollection('blog');
+
+const sortedPosts = posts.sort((a, b) =>
+	b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+
 const pageTitle = 'Blog';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 	<ul>
-		{posts.map((post) => <BlogPost url={`/blog/${post.slug}`} title={post.data.title} pubDate={post.data.pubDate} />)}
+		{sortedPosts.map((post) => <BlogPost url={getBlogPath(post)} title={post.data.title} pubDate={post.data.pubDate} />)}
 	</ul>
 </BaseLayout>
+
+<style>
+	ul {
+		padding-left: 2rem;
+		margin: 1.2em 0;
+		list-style-type: none;
+	}
+</style>

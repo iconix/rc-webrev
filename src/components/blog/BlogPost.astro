@@ -1,14 +1,7 @@
 ---
-const { title, url, pubDate } = Astro.props
+import { formatDate } from '../../utils/params.ts';
 
-// TODO: share with Update.astro
-function formatDate(date: Date) {
-    return new Intl.DateTimeFormat('en-US', {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-    }).format(date);
-}
+const { title, url, pubDate } = Astro.props
 
 const formattedDate = formatDate(pubDate);
 ---
@@ -21,5 +14,58 @@ const formattedDate = formatDate(pubDate);
 
     a {
         text-decoration: none;
+    }
+
+    li {
+        position: relative;
+        line-height: 1.5;
+        margin-bottom: 0.5em;
+        color: var(--primary-text);
+        display: flex;              /* add flex to handle link + timestamp */
+        align-items: baseline;      /* align text nicely */
+        gap: 1em;                   /* space between link and timestamp */
+    }
+
+    /* custom bullet points */
+    li::before {
+        content: '';
+        position: absolute;
+        left: -1.5rem;
+        top: 0.6em;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: var(--secondary-text);
+    }
+
+    li a {
+        color: var(--primary-text);
+        text-decoration: none;
+        flex-grow: 1;
+    }
+
+    li a:hover {
+        text-decoration: underline;
+    }
+
+    /* timestamp styling */
+    li time {
+        color: var(--secondary-text);
+        font-size: 0.875em;   /* slightly smaller than the link */
+        white-space: nowrap;  /* keep timestamp on one line */
+        flex-shrink: 0;       /* prevent timestamp from shrinking */
+    }
+
+    .dark li time {
+        color: var(--dark-secondary-text);
+    }
+
+    /* nested lists */
+    ul {
+        margin: 0.5em 0;       /* less margin for nested lists */
+    }
+
+    .dark li::before {
+        background-color: var(--dark-secondary-text);
     }
 </style>

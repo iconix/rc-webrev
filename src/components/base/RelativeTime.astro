@@ -4,7 +4,7 @@ const { date } = Astro.props;
 
 <div class='relativestamp' data-timestamp={date.getTime()}>
   {/* Initial placeholder */}
-  {new Date(date).toLocaleString()}
+  {date.toLocaleString()}
 </div>
 
 <script>

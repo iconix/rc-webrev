@@ -12,7 +12,7 @@ export async function getStaticPaths({ paginate }) {
         return import.meta.env.PROD ? !data.draft : true;
     });
     const sortedStream = stream.sort((a, b) =>
-        new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+        b.data.pubDate.getTime() - a.data.pubDate.getTime()
     );
 
     return paginate(sortedStream, { pageSize: 10 });
