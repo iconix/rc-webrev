@@ -34,7 +34,7 @@ export default defineConfig({
               {
                 type: 'element',
                 tagName: 'img',
-                properties: { src: '/link.svg' },
+                properties: { src: '/assets/link.svg' },
                 children: [],
               },
             ],
@@ -48,7 +48,7 @@ export default defineConfig({
             type: 'element',
             tagName: 'img',
             properties: {
-              src: '/external-link.svg',
+              src: '/assets/external-link.svg',
               alt: 'External link icon',
             },
             children: [],

@@ -18,21 +18,47 @@ const { frontmatter } = Astro.props;
 </BaseLayout>
 
 <style>
-    a {
-        color: #00539F;
-    }
-
     .tags {
         display: flex;
         flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--secondary-bg);
     }
 
     .tag {
-        margin: 0.25em;
-        border: dotted 1px #a1a1a1;
-        border-radius: .5em;
-        padding: .5em 1em;
-        font-size: 1.15em;
-        background-color: #F8FCFD;
+        margin: 0;
+    }
+
+    .tag a {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        font-size: 0.875rem;
+        color: var(--secondary-text);
+        background: var(--secondary-bg);
+        border-radius: 999px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+
+    .tag a:hover {
+        background: var(--hover-bg);
+        color: var(--primary-text);
+        text-decoration: none;
+    }
+
+    .dark .tags {
+        border-top-color: var(--dark-secondary-bg);
+    }
+
+    .dark .tag a {
+        background: var(--dark-secondary-bg);
+        color: var(--dark-secondary-text);
+    }
+
+    .dark .tag a:hover {
+        background: var(--dark-hover-bg);
+        color: var(--dark-primary-text);
     }
 </style>
