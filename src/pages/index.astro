@@ -1,16 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Headline from '../components/home/Headline.svelte';
+import Headline from '../components/home/Headline.astro';
 
 import '../styles/global.css';
 const pageTitle = '';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<Headline client:only='svelte' messages={[
-		'slow is smooth, and smooth is fast.',
-		'an ml engineer.',
-		'a creative coder.',
-		'the second best time to start a blog is today.',
-		]} />
+	<Headline />
 </BaseLayout>
