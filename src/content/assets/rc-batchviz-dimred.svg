@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+    <!-- Left side: 3D space -->
+    <g transform="translate(50,50)">
+        <!-- 3D axes -->
+        <line x1="0" y1="300" x2="300" y2="300" stroke="#666" stroke-width="2"/>
+        <line x1="0" y1="300" x2="0" y2="0" stroke="#666" stroke-width="2"/>
+        <line x1="0" y1="300" x2="100" y2="250" stroke="#666" stroke-width="2"/>
+
+        <!-- Axis labels -->
+        <text x="310" y="310" font-family="Arial" font-size="14">x</text>
+        <text x="-20" y="10" font-family="Arial" font-size="14">y</text>
+        <text x="110" y="250" font-family="Arial" font-size="14">z</text>
+
+        <!-- 3D points with subtle clustering -->
+        <circle cx="250" cy="50" r="6" fill="#4285f4"/>
+        <circle cx="230" cy="70" r="6" fill="#ea4335"/>
+        <circle cx="240" cy="60" r="6" fill="#34a853"/>
+        <circle cx="150" cy="200" r="6" fill="#fbbc05"/>
+
+        <text x="120" y="20" font-family="Arial" font-size="18" fill="#666">3D Space</text>
+    </g>
+
+    <!-- Arrow indicating transformation -->
+    <g transform="translate(375, 200)">
+        <line x1="0" y1="0" x2="50" y2="0" stroke="#666" stroke-width="2"/>
+        <polygon points="50,-10 70,0 50,10" fill="#666"/>
+        <text x="-20" y="-20" font-family="Arial" font-size="14" fill="#666">UMAP</text>
+    </g>
+
+    <!-- Right side: 2D projection with some distortion -->
+    <g transform="translate(450,50)">
+        <!-- 2D axes -->
+        <line x1="0" y1="300" x2="300" y2="300" stroke="#666" stroke-width="2"/>
+        <line x1="0" y1="300" x2="0" y2="0" stroke="#666" stroke-width="2"/>
+
+        <!-- Axis labels -->
+        <text x="310" y="310" font-family="Arial" font-size="14">x</text>
+        <text x="-20" y="10" font-family="Arial" font-size="14">y</text>
+
+        <!-- 2D projected points with less perfect clustering -->
+        <circle cx="250" cy="80" r="6" fill="#4285f4"/>
+        <circle cx="180" cy="120" r="6" fill="#ea4335"/>
+        <circle cx="220" cy="90" r="6" fill="#34a853"/>
+        <circle cx="100" cy="220" r="6" fill="#fbbc05"/>
+
+        <text x="120" y="20" font-family="Arial" font-size="18" fill="#666">2D Projection</text>
+    </g>
+
+    <!-- Connecting lines between corresponding points showing messier mapping -->
+    <g stroke="#ccc" stroke-width="1" stroke-dasharray="4,4">
+        <line x1="300" y1="100" x2="700" y2="130"/>
+        <line x1="280" y1="120" x2="630" y2="170"/>
+        <line x1="290" y1="110" x2="670" y2="140"/>
+        <line x1="200" y1="250" x2="550" y2="270"/>
+    </g>
+</svg>

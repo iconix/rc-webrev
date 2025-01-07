@@ -1,0 +1,42 @@
+flowchart LR
+    %% Input nodes
+    csv["CSV File<br/>(raw data)"]
+    parquet["Parquet File<br/>(cached embeddings)"]
+
+    %% Processing nodes
+    prep["Prepare Data<br/>CSV → Documents"]
+    embed["Generate Embeddings<br/>Pretrained Model"]
+    save["Save to Disk<br/>as Parquet"]
+    load["Load Dataset<br/>HuggingFace format"]
+    umap1["UMAP Initial<br/>Dimension Reduction"]
+    cluster["HDBSCAN<br/>Assign Clusters"]
+    umap2["UMAP Final<br/>(if dims > 2/3)"]
+    topics["Topic Labels<br/>Semantic Themes"]
+    viz["Plotly<br/>Interactive Viz"]
+
+    %% Connections
+    csv --> prep
+    prep --> embed
+    embed --> save
+    save --> load
+    parquet --> load
+    load --> umap1
+    umap1 --> cluster
+    cluster --> umap2
+    umap2 --> topics
+    topics --> viz
+
+    %% Styles
+    classDef input fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+    classDef process fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    classDef dimreduce fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    classDef cluster fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef viz fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    classDef optional fill:#fff,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
+
+    class csv,parquet input
+    class prep,embed,save,load process
+    class umap1,umap2 dimreduce
+    class cluster,topics cluster
+    class viz viz
+    class umap2 optional
