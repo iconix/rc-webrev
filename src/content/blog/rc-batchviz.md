@@ -1,5 +1,5 @@
 ---
-title: '"batches of batch": visualizing RC interests'
+title: 'batches of batch: visualizing RC interests'
 pubDate: 2025-01-07T00:00:00-05:00
 description: 'in which many words are used to explain a small, ml-based data visualization'
 author: 'Nadja Rhodes'
@@ -34,11 +34,11 @@ This viz was inspired by the "Advice and Introductions" call on the first day of
 
 This sparked a fun idea: what if I could create a durable "map" of everyone's interests based on what they shared that day? This could theoretically help us all find potential collaborators and encourage connections.
 
-As a spoiler, here's what the live visualization looks like, in 2D:
+As a spoiler, here's what the live visualization looks like, in 2D (easier to manuever on bigger screens):
 
 <iframe src='https://iconix.github.io/rc-batchviz/interactive_viz.html' title='batches of batch: a UMAP Projection with HDBSCAN Clustering and `tfidf` Topics' width='860' height='500'></iframe>
 
-It shows batch-mates clustered by color, and hovering over points reveals batch-mate pseudonym, cluster assignment, and topical keywords for the cluster. You can also zoom and pan the visualization to be better see the dense clusters. Also, one could toggle a flag on the generating script to render this in 3D (`--components 3`).
+It shows batch-mates clustered by color, and hovering over points reveals batch-mate pseudonym, cluster assignment, and topical keywords for the cluster. You can also zoom and pan the visualization to be better see the dense clusters (see the controls at the top right). Also, one could toggle a flag on the generating script to render this in 3D (`--components 3`).
 
 # The How
 
@@ -201,7 +201,7 @@ This project used the following Python packages:
 - `parquet` and `datasets` for efficient data storage of embeddings
 - `keybert` and `sentence-transformers` for testing out more modern topic modeling methods
 
-The full implementation is available on GitHub: [iconix/rc-batchviz](https://github.com/iconix/rc-batchviz). I don't share the underlying data used because it was shared in internal communications.
+Here is a direct link to the [final visualization](https://iconix.github.io/rc-batchviz/interactive_viz.html). The full implementation is available on GitHub: [iconix/rc-batchviz](https://github.com/iconix/rc-batchviz). I don't share the underlying data used because it was shared in internal communications.
 
 That's all, folks! Thanks for reading.
 
