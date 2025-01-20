@@ -7,6 +7,8 @@ import rehypeExternalLinks from 'rehype-external-links';
 import rehypeSlug from 'rehype-slug';
 import svelte from '@astrojs/svelte';
 
+import mdx from '@astrojs/mdx';
+
 // https://astro.build/config
 export default defineConfig({
   output: 'hybrid',
@@ -17,7 +19,7 @@ export default defineConfig({
   }),
   site: 'https://ohnadj.pages.dev/',
 
-  integrations: [svelte()],
+  integrations: [svelte(), mdx()],
 
   markdown: {
     rehypePlugins: [

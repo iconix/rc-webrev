@@ -51,6 +51,11 @@ svelte support
 $ npx astro add svelte
 ```
 
+mdx support
+```bash
+$ npx astro add mdx
+```
+
 dynamic typing support on home page
 ```bash
 $ npm install typed.js

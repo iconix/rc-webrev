@@ -6,6 +6,10 @@ author: 'Nadja Rhodes'
 tags: ['recurse', 'projects', 'ai-ml', 'dataviz']
 ---
 
+import dimred from '../assets/rc-batchviz-dimred.svg?raw';
+import embedding from '../assets/rc-batchviz-embedding.svg?raw';
+import pipeline from '../assets/rc-batchviz-pipeline.svg?raw';
+
 # Introduction
 
 ![A screenshot of a cluster from the final visualization created](../assets/rc-batchviz-viz.png)
@@ -62,7 +66,7 @@ Here's where the ML 'magic' starts! Modern machine learning models can translate
 
 Here's a simplified visualization of how embeddings behave in 2D:
 
-![a scatter plot of "cat" "dog" and "airplane" in embedding space](../assets/rc-batchviz-embedding.svg)
+<Fragment set:html={embedding} />
 
 In this example, instead of trying to understand "cat" as a word, the model understands it as a point in multidimensional mathematical space. Words with similar meanings or closer relationships appear closer together - so "cat" and "dog" are closer together than "cat" and "airplane" are.
 
@@ -90,7 +94,7 @@ Like other machine learning approaches, dimensionality reduction involves learni
 
 Here's another simplified visualization, this time for dimensionality reduction:
 
-![simple diagram showing 3D points being mapped to 2D while preserving relationships, with some information loss](../assets/rc-batchviz-dimred.svg)
+<Fragment set:html={dimred} />
 
 Note that some relationships between points are distorted in the projection due to information loss. For example, the tight cluster in 3D gets somewhat dispersed in 2D.
 
@@ -158,7 +162,7 @@ Quick asides: The only data point without a pseudonym is my own: `Nadja Rhodes`.
 
 Here's a flow chart that puts the full pipeline together with a bit more detail. Data flows through the different steps, and each step performs a specific task, as described in the steps above.
 
-![full machine learning pipeline visualized](../assets/rc-batchviz-pipeline.svg)
+<Fragment set:html={pipeline} />
 
 The first full pipeline run, from CSV, takes about a minute and a half on my laptop (no GPU) via the Python script.
 

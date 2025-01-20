@@ -1,5 +1,15 @@
-<svg aria-roledescription="flowchart-v2" role="graphics-document document" viewBox="0 0 2313.578125 222" style="max-width: 100%;" class="flowchart" xmlns="http://www.w3.org/2000/svg" width="100%" id="graph-div" height="100%">
+<svg aria-roledescription="flowchart-v2" role="graphics-document document" viewBox="0 0 2313.578125 222" style="max-width: 100%;" xmlns="http://www.w3.org/2000/svg" width="100%" id="graph-div" height="100%">
   <style>
+    /* light mode is default */
+    :root {
+      --arrow-color: #333333;
+    }
+
+    /* dark mode is activated when any parent has class 'dark' */
+    .dark {
+      --arrow-color: #e0e0e0;
+    }
+
     #graph-div {
       font-family: "trebuchet ms", verdana, arial, sans-serif;
       font-size: 16px;
@@ -41,12 +51,12 @@
     }
 
     #graph-div .marker {
-      fill: #333333;
-      stroke: #333333;
+      fill: var(--arrow-color);
+      stroke: var(--arrow-color);
     }
 
     #graph-div .marker.cross {
-      stroke: #333333;
+      stroke: var(--arrow-color);
     }
 
     #graph-div svg {
@@ -116,22 +126,22 @@
     }
 
     #graph-div .root .anchor path {
-      fill: #333333 !important;
+      fill: var(--arrow-color) !important;
       stroke-width: 0;
-      stroke: #333333;
+      stroke: var(--arrow-color);
     }
 
     #graph-div .arrowheadPath {
-      fill: #333333;
+      fill: var(--arrow-color);
     }
 
     #graph-div .edgePath .path {
-      stroke: #333333;
+      stroke: var(--arrow-color);
       stroke-width: 2.0px;
     }
 
     #graph-div .flowchart-link {
-      stroke: #333333;
+      stroke: var(--arrow-color);
       fill: none;
     }
 
