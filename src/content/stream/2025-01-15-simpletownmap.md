@@ -5,4 +5,4 @@ tags: ['gamedev']
 
 a simplified map of landmarks in my little town. thinking about what exactly i hope it encapsulates about me :) nbd just ruminating about my life as a social simulation game
 
-<iframe src='https://iconix.github.io/rc-impossible-town/nadj-land/' title='simplified map of town landmarks' width='700' height='900'></iframe>
+<iframe src='https://iconix.github.io/rc-impossible-town/nadj-land/simple.html' title='simplified map of town landmarks' width='700' height='900'></iframe>
