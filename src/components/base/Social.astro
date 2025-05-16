@@ -12,7 +12,7 @@ const platforms = {
   }
 };
 
-const { icon, url } = platforms[platform.toLowerCase()];
+const { icon, url } = platforms[platform.toLowerCase() as keyof typeof platforms];
 ---
 
 <script>
@@ -20,12 +20,19 @@ const { icon, url } = platforms[platform.toLowerCase()];
 </script>
 
 <a href={url} target='_blank' rel='nofollow noopener noreferrer'>
- <iconify-icon icon={icon} width=16></iconify-icon>
- {platform.charAt(0).toUpperCase() + platform.slice(1)}
+ <iconify-icon icon={icon} width=16 class="social-icon"></iconify-icon>
+ {platform.toLowerCase()}
 </a>
 
 <style>
   a {
     text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .social-icon {
+    color: var(--accent-color);
   }
 </style>

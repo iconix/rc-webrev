@@ -2,22 +2,37 @@
 import BaseLayout from './BaseLayout.astro';
 const { frontmatter } = Astro.props;
 ---
-<BaseLayout pageTitle={frontmatter.title}>
-    <p>{frontmatter.pubDate.toString().slice(0,10)}</p>
-    <p><em>{frontmatter.description}</em></p>
+<BaseLayout pageTitle={frontmatter.title} currentSection='blog'>
+    <div class='post-meta'>
+        <p><em>{frontmatter.pubDate.toString().toLowerCase().slice(0,10)}</em></p>
+        <p><em>{frontmatter.description.toLowerCase()}</em></p>
+    </div>
 
     {frontmatter.image && <img src={frontmatter.image.url} width='300' alt={frontmatter.image.alt} />}
 
     <slot />
 
     <div class='tags'>
-        {frontmatter.tags.map((tag) => (
+        {frontmatter.tags.map((tag: string) => (
             <p class='tag'><a href={`/tags/${tag}`}>{tag}</a></p>
         ))}
     </div>
 </BaseLayout>
 
 <style>
+    .post-meta {
+        margin-top: 0;
+        padding-bottom: 0.5em;
+    }
+
+    .post-meta p {
+        margin: 0;
+    }
+
+    :global(main) {
+        margin-top: 0.5em;
+    }
+
     .tags {
         display: flex;
         flex-wrap: wrap;

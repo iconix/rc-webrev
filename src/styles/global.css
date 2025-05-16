@@ -6,7 +6,7 @@
     --secondary-text: #9b9b9b;
     --hover-bg: #faf5e1;
     --active-bg: #fde047;
-    --accent-color: #10b981;
+    --accent-color: #0d9488;    /* deeper teal for good contrast in light mode */
 
     /* dark mode colors */
     --dark-primary-bg: #091838;
@@ -15,6 +15,7 @@
     --dark-secondary-text: #9ca3af;
     --dark-hover-bg: #2d3748;
     --dark-active-bg: #394760;
+    --dark-accent-color: #10b981;  /* brighter green for vibrant contrast in dark mode */
 }
 
 .dark {
@@ -24,6 +25,7 @@
     --secondary-text: var(--dark-secondary-text);
     --hover-bg: var(--dark-hover-bg);
     --active-bg: var(--dark-active-bg);
+    --accent-color: var(--dark-accent-color);
 }
 
 /* base styles */
@@ -32,6 +34,12 @@ html, body { margin: 0; }
 html {
     background: var(--primary-bg);
     font-family: system-ui, sans-serif;
+    box-sizing: border-box;
+}
+
+/* ensures that borders and padding are included in an element's total width/height calculations */
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
 body {
@@ -101,18 +109,38 @@ p, li {
 }
 
 /* links and buttons */
-a {
-    color: var(--primary-text);
-    text-decoration: underline;
-}
-
 a:hover {
     text-decoration: underline;
+    text-underline-offset: 2px; /* space between text and underline */
+    text-decoration-thickness: 1.5px; /* slightly thicker underline */
+    opacity: 0.85;            /* slightly less transparent on hover */
 }
 
-a:hover :global(iconify-icon) {
-    border-bottom: 1px solid var(--primary-text);
-    margin-bottom: -2px;
+
+
+/* header and footer links */
+header a, footer a {
+    color: var(--primary-text);
+}
+
+
+/* main content links */
+main a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-weight: 500;          /* slightly bolder */
+    position: relative;        /* for optional underline effect */
+}
+
+/* Dark mode adjustments */
+.dark main a {
+    color: var(--accent-color);
+    font-weight: 500;         /* maintain weight in dark mode */
+}
+
+.dark main a:hover {
+    opacity: 0.9;             /* less transparent in dark mode */
 }
 
 button {

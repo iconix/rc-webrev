@@ -5,7 +5,7 @@ const { title, url, pubDate } = Astro.props
 
 const formattedDate = formatDate(pubDate);
 ---
-<li><a href={url}><time>{formattedDate}</time> {title}</a></li>
+<li><time>{formattedDate}</time><a href={url}>{title}</a></li>
 
 <style>
     .blog-t {
@@ -20,10 +20,9 @@ const formattedDate = formatDate(pubDate);
         position: relative;
         line-height: 1.5;
         margin-bottom: 0.5em;
-        color: var(--primary-text);
         display: flex;              /* add flex to handle link + timestamp */
         align-items: baseline;      /* align text nicely */
-        gap: 1em;                   /* space between link and timestamp */
+        gap: 0.5em;                 /* space between link and timestamp */
     }
 
     /* custom bullet points */
@@ -39,13 +38,14 @@ const formattedDate = formatDate(pubDate);
     }
 
     li a {
-        color: var(--primary-text);
+        color: var(--accent-color);
         text-decoration: none;
-        flex-grow: 1;
+        transition: all 0.2s ease;
     }
 
     li a:hover {
         text-decoration: underline;
+        opacity: 0.8;
     }
 
     /* timestamp styling */
@@ -54,6 +54,11 @@ const formattedDate = formatDate(pubDate);
         font-size: 0.875em;   /* slightly smaller than the link */
         white-space: nowrap;  /* keep timestamp on one line */
         flex-shrink: 0;       /* prevent timestamp from shrinking */
+        min-width: 5.5em;     /* ensure consistent width for timestamps */
+    }
+
+    .dark li::before {
+        background-color: var(--dark-secondary-text);
     }
 
     .dark li time {
@@ -63,9 +68,5 @@ const formattedDate = formatDate(pubDate);
     /* nested lists */
     ul {
         margin: 0.5em 0;       /* less margin for nested lists */
-    }
-
-    .dark li::before {
-        background-color: var(--dark-secondary-text);
     }
 </style>

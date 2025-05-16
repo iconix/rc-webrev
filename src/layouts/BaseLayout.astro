@@ -3,7 +3,12 @@ import Footer from '../components/base/Footer.astro';
 import Header from '../components/base/Header.astro';
 import '../styles/global.css';
 
-const { pageTitle } = Astro.props;
+interface Props {
+	pageTitle?: string;
+	currentSection?: string;
+}
+
+const { pageTitle, currentSection } = Astro.props;
 const siteAuthor = 'Nadja Rhodes';
 const titleInHead = pageTitle ? `${pageTitle} | ${siteAuthor}` : siteAuthor;
 ---
@@ -18,17 +23,24 @@ const titleInHead = pageTitle ? `${pageTitle} | ${siteAuthor}` : siteAuthor;
 		</script>
 
 		<meta charset='utf-8' />
-		<link rel='icon' type='image/svg+xml' href='/favicon.ico' />
+		<link rel='icon' type='image/svg+xml' href='/favicon-light.svg' />
 		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
 		<meta name='generator' content={Astro.generator} />
 		<title>{titleInHead}</title>
 	</head>
 	<body>
-		<Header />
+		<Header currentSection={currentSection} />
 		<h1>{pageTitle || siteAuthor}</h1>
 		<main>
 			<slot />
 		</main>
 		<Footer />
 	</body>
+	<script>
+		// set favicon according to scheme
+		const favicon = document.querySelector('link[rel="icon"]');
+		if (favicon) {
+			favicon.href = scheme === 'dark' ? '/favicon-dark.svg' : '/favicon-light.svg';
+		}
+	</script>
 </html>

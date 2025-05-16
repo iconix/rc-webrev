@@ -6,7 +6,7 @@ export async function GET(context) {
   const posts = await getCollection('blog');
 
   return rss({
-    title: 'Nadja Rhodes | Blog',
+    title: 'Nadja Rhodes | blog',
     description: 'slow is smooth, and smooth is fast',
     site: context.site,
     items: posts.map((post) => ({

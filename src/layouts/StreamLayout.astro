@@ -2,11 +2,11 @@
 import '../styles/global.css';
 
 interface Props {
-    title: string;
+    pageTitle?: string;
 }
 
 const { pageTitle } = Astro.props;
-const siteAuthor = 'Nadja Rhodes';
+const siteAuthor = 'nadja rhodes';
 const titleInHead = pageTitle ? `${pageTitle} | ${siteAuthor}` : siteAuthor;
 ---
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ const titleInHead = pageTitle ? `${pageTitle} | ${siteAuthor}` : siteAuthor;
 		</script>
 
         <meta charset='utf-8' />
-        <link rel='icon' type='image/svg+xml' href='/favicon.ico' />
+        <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <meta name='generator' content={Astro.generator} />
         <title>{titleInHead}</title>

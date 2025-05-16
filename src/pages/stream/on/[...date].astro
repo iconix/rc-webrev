@@ -35,10 +35,11 @@ export async function getStaticPaths() {
 }
 
 const { stream } = Astro.props;
+const currentSection = 'stream';
 ---
 
 <StreamLayout pageTitle={`Stream on ${formatDate(stream[0].data.pubDate)}`}>
-    <Header />
+    <Header currentSection={currentSection} />
     <main>
         <div class='stream-header'>
             <h1>Stream on {formatDate(stream[0].data.pubDate)}</h1>

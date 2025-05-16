@@ -28,6 +28,12 @@
 
       const isDark = element.classList.contains('dark');
       localStorage.setItem('colorscheme', isDark ? 'dark' : 'light');
+
+      // set favicon according to scheme
+      const favicon = document.querySelector('link[rel="icon"]') as HTMLLinkElement;
+      if (favicon) {
+        favicon.href = isDark ? '/favicon-dark.svg' : '/favicon-light.svg';
+      }
     }
 
     toggle.addEventListener('click', handleToggleClick);

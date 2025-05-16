@@ -1,10 +1,15 @@
 ---
+interface Props {
+    currentSection?: string;
+}
+
+const { currentSection } = Astro.props;
 ---
 <nav>
-  <a href='/'>Home</a>
-  <a href='/about'>About</a>
-  <a href='/stream'>Stream</a>
-  <a href='/blog'>Blog</a>
+  <a href='/' class={currentSection === 'home' ? 'current-section' : ''}>home</a>
+  <a href='/about' class={currentSection === 'about' ? 'current-section' : ''}>about</a>
+  <a href='/stream' class={currentSection === 'stream' ? 'current-section' : ''}>stream</a>
+  <a href='/blog' class={currentSection === 'blog' ? 'current-section' : ''}>blog</a>
 </nav>
 
 <style>
@@ -12,5 +17,24 @@
     display: flex;
     align-items: center;
     gap: 1em;
+  }
+
+  .current-section {
+    color: var(--accent-color);
+    font-weight: 500;
+  }
+
+  .current-section:hover {
+    color: var(--accent-color);
+    opacity: 0.8;
+  }
+
+  :global(.dark) .current-section {
+    color: var(--accent-color);
+  }
+
+  :global(.dark) .current-section:hover {
+    color: var(--accent-color);
+    opacity: 0.8;
   }
 </style>

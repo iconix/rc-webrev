@@ -11,10 +11,11 @@ const sortedPosts = posts.sort((a, b) =>
 	b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
 
-const pageTitle = 'Blog';
+const pageTitle = 'blog';
+const currentSection = 'blog';
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle={pageTitle} currentSection={currentSection}>
 	<ul>
 		{sortedPosts.map((post) => <BlogPost url={getBlogPath(post)} title={post.data.title} pubDate={post.data.pubDate} />)}
 	</ul>
