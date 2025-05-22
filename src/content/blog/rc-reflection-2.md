@@ -1,9 +1,9 @@
 ---
-title: 'Recurse Center: Week 3'
+title: 'recurse center: week 3'
 pubDate: 2024-11-25T00:00:00-05:00
-description: 'Stuck in between // It is what it is'
+description: 'stuck in between // it is what it is'
 author: 'Nadja Rhodes'
-tags: ['recurse', 'blogging', 'learning in public']
+tags: ['recurse', 'learning in public']
 ---
 
 🏡 Week 3 has been a study in adapting to the realities of doing RC with a young family. Kitchen sink leaks, doctor appointments, early daycare pickups, and a little one who needed extra love this week: it has been a reminder that this "retreat" is still happening within the context of the rest of life.

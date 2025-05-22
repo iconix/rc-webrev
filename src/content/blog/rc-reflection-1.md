@@ -1,9 +1,9 @@
 ---
-title: 'Recurse Center: Weeks 1-2'
+title: 'recurse center: weeks 1-2'
 pubDate: 2024-11-18T00:00:00-05:00
-description: 'When will my reflection show // Who I am inside?'
+description: 'when will my reflection show // who I am inside?'
 author: 'Nadja Rhodes'
-tags: ['recurse', 'blogging', 'learning in public']
+tags: ['recurse', 'learning in public']
 ---
 
 But first... What is [Recurse Center (RC)](https://www.recurse.com/)?

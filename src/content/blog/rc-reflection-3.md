@@ -1,9 +1,9 @@
 ---
-title: 'Recurse Center: Weeks 4-5'
+title: 'recurse center: weeks 4-5'
 pubDate: 2024-12-06T00:00:00-05:00
 description: "i'll be waiting here for you, my love // on this new york city coast"
 author: 'Nadja Rhodes'
-tags: ['recurse', 'blogging', 'learning in public']
+tags: ['recurse', 'learning in public']
 ---
 
 🦃 Week 4 was abbreviated for Turkey Day in the States. So I am combining Weeks 4-5 into one reflection.

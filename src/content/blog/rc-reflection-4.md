@@ -1,9 +1,9 @@
 ---
-title: 'Recurse Center: Week 6'
+title: 'recurse center: week 6'
 pubDate: 2024-12-13T00:00:00-05:00
 description: 'time after time'
 author: 'Nadja Rhodes'
-tags: ['recurse', 'blogging', 'learning in public']
+tags: ['recurse', 'learning in public']
 ---
 
 🎈 On Monday, my [december-adventure](https://eli.li/december-adventure) collided with Nature of Code, chapter 2. The result was a [helium balloon simulation](https://github.com/iconix/december-adventure/blob/main/09/README.md) that I got pleasantly carried away with. The physics were fun to play with and dive into a bit!

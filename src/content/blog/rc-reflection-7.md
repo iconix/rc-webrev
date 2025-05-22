@@ -1,14 +1,14 @@
 ---
-title: 'Recurse Center: Weeks 9-10'
+title: 'recurse center: weeks 9-10'
 pubDate: 2025-01-31T00:00:00-05:00
 description: 'time // oh time // got sucked into a culture // living like you do'
 author: 'Nadja Rhodes'
-tags: ['recurse', 'blogging', 'learning in public']
+tags: ['recurse', 'learning in public']
 ---
 
 🤝 Week 9 felt a little light on progress and content - so I held off on posting a reflection and will now cover the past 2 weeks!
 
-🎮 These weeks have driven me deeper into game development! I have been primarily learning the intricacies of [Tiled](https://www.mapeditor.org/), an open source, tile-based map editor that deserves its own blog post (coming soon&#8482;!). I haven't really messed with this kind of software since discovering an ancient version of Photoshop on my mom's desktop in middle school lol. I've been wrestling with layers and sprite dimensions and texture packing and the like, and I finally have a (tiny) walkable town up and running: https://iconix.github.io/rc-impossible-town/nadj-land/ (easter egg: try approaching the door on the green house). I even presented it at half-baked demos! Beware of some mysterious vertical bars if you're on mobile: it's a rendering quirk that I've decided to live with for now, after a frustrating day of debugging. Excited to pair with a batch-mate on squashing this bug soon!
+🎮 These weeks have driven me deeper into game development! I have been primarily learning the intricacies of [Tiled](https://www.mapeditor.org/), an open source, tile-based map editor that deserves its own blog post ([it's here!](/blog/2025/02/tiled)). I haven't really messed with this kind of software since discovering an ancient version of Photoshop on my mom's desktop in middle school lol. I've been wrestling with layers and sprite dimensions and texture packing and the like, and I finally have a (tiny) walkable town up and running: https://iconix.github.io/rc-impossible-town/nadj-land/ (easter egg: try approaching the door on the green house). I even presented it at half-baked demos! Beware of some mysterious vertical bars if you're on mobile: it's a rendering quirk that I've decided to live with for now, after a frustrating day of debugging. Excited to pair with a batch-mate on squashing this bug soon!
 
 🤖 For "Impossible Stuff Day" round 2 (which I had to catch up on during a rare weekend session), I explored adding NPCs with personalities to my town. Each character got a personality type (shy, outgoing, formal, mysterious, playful, or melancholic) that influences their movement and emoji usage. The NPCs only speak in emojis! While this kind of emoji bombardment might not be the final direction for my town, getting the idea into prototype-y code helped clarify what might make these NPCs genuinely interesting. More experiments to come!
 

@@ -1,9 +1,9 @@
 ---
-title: 'Recurse Center: Week 8'
+title: 'recurse center: week 8'
 pubDate: 2025-01-17T00:00:00-05:00
 description: "this is my idea of fun // playing video games // it's you, it's you, it's all for you"
 author: 'Nadja Rhodes'
-tags: ['recurse', 'blogging', 'learning in public']
+tags: ['recurse', 'learning in public']
 ---
 
 🎮 This week has been thoroughly gamedev-themed! I dusted off my "Impossible Stuff Day" repo [from week 3](/blog/2024/11/rc-reflection-2), joined the game dev interest group, sketched out a map of my small town, and started another tutorial: all towards slowly, but surely, developing the game interface that I envision for this site. I am embracing being a beginner all over again! Check out my [stream](/stream) for a couple sneak peeks into the process so far! (A new thought from this reflection: I should keep a dev log on this! Just need to bundle my notes together.)

@@ -1,9 +1,9 @@
 ---
-title: 'Recurse Center: Week 7'
+title: 'recurse center: week 7'
 pubDate: 2025-01-10T00:00:00-05:00
 description: 'harder // better // faster // stronger'
 author: 'Nadja Rhodes'
-tags: ['recurse', 'blogging', 'learning in public']
+tags: ['recurse', 'learning in public']
 ---
 
 🪩 And we're back from winter break: happy new year! And welcome to my new Winter 2, 2025 batch-mates.
@@ -14,7 +14,7 @@ tags: ['recurse', 'blogging', 'learning in public']
 
 🎯 The mid-batch reflection workshop in December helped me set some goals for this second half of batch: (1) push through the mental barrier I've built up around the next iterations of this site (this will also help with [working at the edge of my abilities](https://www.recurse.com/self-directives#work-at-the-edge)); (2) pair more (combines working at the edge of my abilities with interview prep); (3) [blog](/blog) and [stream](/stream) more content; (4) nature of code: redux and keeping up on creative pursuits; (5) next company hunt and practice interviews. Roughly in that order.
 
-📝 Finally published my first project write-up of RC: [batches of batch: visualizing RC interests](/blog/2025/01/rc-batchviz). What was meant to be a "warmup" has turned into much more time and many more words than anticipated, but getting it out there feels like finally clearing out the mental space for new projects.
+📝 Finally published my first project write-up of RC: [batches of batch: visualizing rc interests](/blog/2025/01/rc-batchviz). What was meant to be a "warmup" has turned into much more time and many more words than anticipated, but getting it out there feels like finally clearing out the mental space for new projects.
 
 ⏰ _The Artist's Way_ morning pages have been an interesting challenge. It turns out that they are meant to be written first thing when you wake up - which is tricky as a night owl with the aforementioned 10-month-old who usually wakes around 7:15am. But I managed my first 25-minute session before he woke up on Friday morning. Now to keep my 1-day streak alive, heading into the weekend...
 

@@ -1,7 +1,7 @@
 ---
-title: 'batches of batch: visualizing RC interests'
+title: 'batches of batch: visualizing rc interests'
 pubDate: 2025-01-07T00:00:00-05:00
-description: 'in which many words are used to explain a small, ml-based data visualization'
+description: 'in which many words are used to explain a small, ml-based data viz'
 author: 'Nadja Rhodes'
 tags: ['recurse', 'projects', 'ai-ml', 'dataviz']
 ---
@@ -10,7 +10,7 @@ import dimred from '../assets/rc-batchviz-dimred.svg?raw';
 import embedding from '../assets/rc-batchviz-embedding.svg?raw';
 import pipeline from '../assets/rc-batchviz-pipeline.svg?raw';
 
-# Introduction
+## Introduction
 
 ![A screenshot of a cluster from the final visualization created](../assets/rc-batchviz-viz.png)
 _<span style="font-size: 13px">Screenshot of my cluster from the final visualization created. My batch-mates are pseudonym-ized.</span>_
@@ -28,7 +28,7 @@ _Disclaimer_: This was a quick, fun exercise that I did to warm up my coding mus
 
 For more on RC, check out the first few paragraphs that I wrote [here](/blog/2024/11/rc-reflection-1).
 
-# The What
+## The What
 
 "batches of batch" is a lightly interactive 2D/3D visualization that attempts to show how my batch-mates' interests relate to one another, based on the content of their welcome posts and week 1 introductions. The full source code is available on GitHub: [iconix/rc-batchviz](https://github.com/iconix/rc-batchviz).
 
@@ -44,7 +44,7 @@ As a spoiler, here's what the live visualization looks like, in 2D (easier to ma
 
 It shows batch-mates clustered by color, and hovering over points reveals batch-mate pseudonym, cluster assignment, and topical keywords for the cluster. You can also zoom and pan the visualization to be better see the dense clusters (see the controls at the top right). Also, one could toggle a flag on the generating script to render this in 3D (`--components 3`).
 
-# The How
+## The How
 
 At a very high level:
 
@@ -166,7 +166,7 @@ Here's a flow chart that puts the full pipeline together with a bit more detail.
 
 The first full pipeline run, from CSV, takes about a minute and a half on my laptop (no GPU) via the Python script.
 
-# The Results
+## The Results
 
 So how representative of interests is this viz, really? Across the board, not terribly but also not spectacularly. The clusters seem fairly coherent after a brief inspection, but the topic labels to help with interpretation are lackluster.
 
@@ -209,7 +209,7 @@ Here is a direct link to the [final visualization](https://iconix.github.io/rc-b
 
 That's all, folks! Thanks for reading.
 
-# Kudos
+## Kudos
 
 Special thanks to:
 
@@ -218,7 +218,7 @@ Special thanks to:
 - RC faculty and their A-1 workshops for the consistent inspiration
 - [Claude](https://claude.ai/) by Anthropic for generating the SVG diagrams used in this post to visualize concepts, as well as chatting with me to generate the Plotly scatter plot code 🤖 All other content was composed by me.
 
-# Resources
+## Resources
 
 In machine learning nowadays, things change so fast that finding the most up-to-date resources, pretrained models, and libraries can be half the battle. The following resources helped me out a lot in this respect:
 
