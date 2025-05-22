@@ -1,0 +1,397 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+
+const pageTitle = 'cv';
+const currentSection = 'about';
+---
+
+<BaseLayout pageTitle={pageTitle} currentSection={currentSection}>
+    <p class="print-note">Print this page to PDF for a single-page resume.</p>
+    <div class="resume-container">
+        <div class="header">
+            <h1>Nadja Rhodes</h1>
+            <h2>Machine Learning Engineer <span class="separator">|</span> <span class="location">Washington, DC Metro Area</span></h2>
+            <div class="contact-info">
+                <a href="mailto:narhodes1+res@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i>&nbsp;narhodes1+res@gmail.com</a>
+                <a href="https://github.com/iconix" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i>&nbsp;iconix</a>
+                <a href="https://linkedin.com/in/nadjarhodes" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i>&nbsp;nadjarhodes</a>
+                <a href="https://iconix.github.io" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe" aria-hidden="true"></i>&nbsp;iconix.github.io</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Work Experience</h2>
+
+            <div class="experience">
+                <div class="experience-header">
+                    <span><strong>ASAPP</strong></span>
+                    <span><strong>Jan 2019 &ndash; Jul 2024</strong></span>
+                </div>
+                <div class="experience-subheader">
+                    <span>New York, NY</span>
+                    <span></span>
+                </div>
+
+                <ul>
+                    <li><strong>Staff Machine Learning Engineer</strong> (Nov 2021 &ndash; Jul 2024)
+                        <ul>
+                            <li>Led ML engineering team of three, in <span class="highlight">XFN collaboration</span> with a dozen research scientists and product engineers, to launch company's <span class="highlight">first "agentic" customer support bot</span> for a Fortune 100 client, enabling automation of <span class="highlight">complex, natural language interactions</span>.</li>
+                            <li>Led team of four developing <span class="highlight">company-wide ML training framework</span> used by all (~20) models, implementing standardized pipelines, remote compute management, dataset versioning, model registry, and external tool integration.</li>
+                            <li>Architected <span class="highlight">multi-node distributed training</span> on colocated servers using Kubernetes and Ray.io; collaborated on training dataset indexing service development for 10x faster dataset access (minutes to seconds).</li>
+                            <li><span class="highlight">Proactively built</span> an internal Slack bot as a passion project, providing thread summarization, internal asset ownership info, and trend detection to improve team communications.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Lead Machine Learning Engineer</strong> (Jan 2019 &ndash; Nov 2021)
+                        <ul>
+                            <li>Architected centralized routing layer between applications and ML services, migrating critical <span class="highlight">NLU components</span> while <span class="highlight">orchestrating parallel model calls</span> and unifying responses with entity handling and intent classification.</li>
+                            <li>Led end-to-end development of named entity recognition and entity highlighting service for 1st company voice client; owned <span class="highlight">domain-specific entity extraction</span> from planning to rollout, delivering 11% increase in entity card hover rates.</li>
+                            <li>Implemented <span class="highlight">model observability</span> and <span class="highlight">monitoring systems</span> for tracking inference performance and automated alerting for model and service quality degradation.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="experience">
+                <div class="experience-header">
+                    <span><strong>Microsoft</strong></span>
+                    <span><strong>Sep 2013 &ndash; Sep 2018</strong></span>
+                </div>
+                <div class="experience-subheader">
+                    <span>Redmond, WA</span>
+                    <span></span>
+                </div>
+
+                <ul>
+                    <li><strong>Software Engineer II</strong> (Apr 2016 &ndash; Sep 2018)
+                        <ul>
+                            <li>Pioneered and <span class="highlight">patented ML efforts</span> in an incubation team of three, developing a <span class="highlight">task detection prototype</span> for identifying actionable items in text.</li>
+                            <li>Rebuilt and open-sourced the <a href="https://github.com/OneNoteDev/WebClipper" target="_blank" rel="noopener noreferrer">OneNote Web Clipper</a> on a modern, React-like framework; led client-side telemetry implementation. Led development of Web Clipper ratings prompt, increasing Chrome Web Store rating from 2.73 to 4.44 stars.</li>
+                            <li>Spearheaded GDPR compliance plan and implementation for exporting OneNote content.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Software Engineer</strong> (Sep 2013 &ndash; Apr 2016)
+                        <ul>
+                            <li>Led development and public launch of <a href="https://www.onenote.com/notebooks" target="_blank" rel="noopener noreferrer">OneNote.com/notebooks</a> entry point (4M MAU, 58K daily visits).</li>
+                            <li>Enhanced backend for OneNote welcome emails and produced data-driven insights on feature experimentation.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Education & Specialized Training</h2>
+
+            <div class="experience">
+                <div class="experience-header">
+                    <span><strong>OpenAI Scholar</strong></span>
+                    <span><strong>Summer 2018</strong></span>
+                </div>
+                <div class="experience-subheader">
+                    <span>OpenAI</span>
+                    <span>San Francisco, CA</span>
+                </div>
+                <ul>
+                    <li>Selected for highly competitive <a href="https://openai.com/index/openai-scholars/" target="_blank" rel="noopener noreferrer">scholarship</a> to study <span class="highlight">deep learning</span> under <a href="https://natashajaques.ai/" target="_blank" rel="noopener noreferrer">Dr. Natasha Jaques</a>; focused on <span class="highlight">language modeling</span> and <span class="highlight">generative text</span> for NLP.</li>
+                    <li>Developed and open-sourced deephypebot, a <span class="highlight">generative language model</span> that creates music commentary on Twitter. (<a href="https://github.com/iconix/deephypebot" target="_blank" rel="noopener noreferrer">Code</a>, <a href="https://youtu.be/-6Aq5Q0c-CU" target="_blank" rel="noopener noreferrer">Talk</a>)</li>
+                </ul>
+            </div>
+
+            <div class="experience">
+                <div class="experience-header">
+                    <span><strong>B.S. Computer Science</strong></span>
+                    <span><strong>2009 &ndash; 2013</strong></span>
+                </div>
+                <div class="experience-subheader">
+                    <span>Stanford University, School of Engineering</span>
+                    <span>Stanford, CA</span>
+                </div>
+                <ul>
+                    <li>Specialized in the Information track, focused on creating, processing, and understanding digital information.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="two-column">
+            <div>
+                <div class="section">
+                    <h2 class="section-title">Technical Skills</h2>
+
+                    <div class="experience">
+                        <ul>
+                            <li><strong>ML Technologies:</strong> <span class="highlight">PyTorch</span>, <span class="highlight">PyTorch Lightning</span>, <span class="highlight">Hugging Face Transformers</span>, spaCy, Jupyter, scikit-learn.</li>
+                            <li><strong>ML Domains:</strong> <span class="highlight">NLP/NLU</span>, <span class="highlight">Large Language Models</span>, <span class="highlight">Text Embeddings</span>, Neural Networks, <span class="highlight">Fine-Tuning</span>, <span class="highlight">Conversational AI</span>, Multi-Agent Systems, <span class="highlight">Information Extraction</span>.</li>
+                            <li><strong>Infrastructure:</strong> <span class="highlight">Kubernetes</span>, <span class="highlight">Distributed Training (Ray)</span>, <span class="highlight">Cloud Computing (AWS)</span>, <span class="highlight">CI/CD</span>, <span class="highlight">Airflow</span>, <span class="highlight">MLflow</span>, Docker, Git.</li>
+                            <li><strong>Backend Development:</strong> <span class="highlight">aiohttp/asyncio servers</span>, <span class="highlight">ML inference APIs</span>, Microservices, gRPC/Protocol Buffers, REST.</li>
+                            <li><strong>Languages:</strong> <span class="highlight">Python</span>, TypeScript/JavaScript, SQL.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="section">
+                    <h2 class="section-title">Career Transitions & Engagement</h2>
+
+                    <div class="experience">
+                        <ul>
+                            <li><strong>Recurse Center</strong> (Nov 2024 &ndash; Feb 2025): Self-directed <a href="https://www.recurse.com/" target="_blank" rel="noopener noreferrer">programming retreat</a> in a peer-learning environment. Focused on web development, creative coding, and <span class="highlight">generative AI</span>.</li>
+                            <li><strong>Family Sabbatical</strong> (Jul &ndash; Nov 2024): Dedicated time for first-time parenting and career path reflection.</li>
+                            <li><strong>Presentations & Conferences</strong>: <span class="highlight">OpenAI Scholars Demo Day (2018, <a href="https://youtu.be/-6Aq5Q0c-CU" target="_blank" rel="noopener noreferrer">deephypebot</a>)</span>, RenderATL (2023), ACL (2019), NSBE (2018), GHC (2016), Y Combinator FFC (2014).</li>
+                            <li><strong>Internships</strong>: <a href="https://www.rd.ntt/e/cs/" target="_blank" rel="noopener noreferrer">NTT Communication Science Labs</a> (2012), Google BOLD (2011), Stanford Research (2010).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</BaseLayout>
+
+<style is:global>
+    /* Hide site navigation and other elements when printing */
+    @media print {
+        nav, header, footer, .site-header, .site-footer, h1:not(.resume-container h1), .page-title {
+            display: none !important;
+        }
+
+        @page {
+            size: letter;
+            margin: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            width: 8.5in;
+            height: 11in;
+            background-color: white;
+        }
+
+        main {
+            margin: 0 !important;
+            padding: 0 !important;
+            max-width: none !important;
+            width: 100% !important;
+        }
+    }
+</style>
+
+<style>
+    /* Layout control styles */
+    .screen-only {
+        display: block;
+    }
+    .print-only {
+        display: none;
+    }
+
+    @media print {
+        .screen-only {
+            display: none;
+        }
+        .print-only {
+            display: block;
+        }
+    }
+
+    /* Base styles for screen viewing */
+    .resume-container {
+        max-width: 8.5in;
+        margin: 0 auto;
+        padding: 0.2in;
+        position: relative;
+        border-left: 5px solid #10616E;
+        font-size: 9.5pt;
+        line-height: 1.25;
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 6px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid #eaeaea;
+    }
+
+    .header h1 {
+        margin: 0 0 2px 0;
+        color: #10616E;
+        font-size: 18pt;
+        letter-spacing: -0.5px;
+    }
+
+    .header h2 {
+        margin: 0 0 4px 0;
+        font-weight: normal;
+        font-size: 10pt;
+        color: #555;
+    }
+
+    .separator {
+        margin: 0 6px;
+        color: #999;
+    }
+
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 6px;
+        flex-wrap: wrap;
+        font-size: 8pt;
+    }
+
+    .contact-info a {
+        color: #2B8396;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.125rem 0.375rem;
+        border-radius: 3px;
+    }
+
+    .section {
+        margin-bottom: 6px;
+        padding-left: 2px;
+    }
+
+    .section-title {
+        font-size: 12pt;
+        color: #10616E;
+        border-bottom: 1px solid #10616E;
+        padding-bottom: 2px;
+        margin: 0 0 4px 0;
+    }
+
+    .two-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-bottom: 6px;
+    }
+
+    .experience {
+        margin-bottom: 6px;
+        padding: 3px 5px;
+        border-left: 2px solid #eaeaea;
+    }
+
+    .experience-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1px;
+        flex-wrap: nowrap;
+    }
+
+    .experience-subheader {
+        display: flex;
+        justify-content: space-between;
+        font-style: italic;
+        margin-bottom: 2px;
+        font-size: 8.5pt;
+        color: #555;
+        flex-wrap: nowrap;
+    }
+
+    ul {
+        padding-left: 12px;
+        margin: 0.5px 0;
+    }
+
+    ul ul {
+        margin-top: 0.5px;
+    }
+
+    li {
+        margin-bottom: 0.5px;
+        position: relative;
+        line-height: 1.2;
+    }
+
+    .highlight {
+        /* background-color: #E6F4F7; */
+        padding: 0 0.125rem;
+    }
+
+    /* Print-specific styles */
+    @media print {
+        .resume-container {
+            padding: 0.2in;
+            max-width: none;
+            width: 100%;
+            box-sizing: border-box;
+            height: 100%;
+            box-shadow: none;
+            border-left: none;
+            margin: 0;
+        }
+
+        .header {
+            margin-bottom: 6px;
+        }
+
+        .section {
+            margin-bottom: 6px;
+        }
+
+        .experience {
+            margin-bottom: 6px;
+            page-break-inside: avoid;
+        }
+
+        .two-column {
+            gap: 12px;
+        }
+
+        a[href]:after {
+            content: none !important;
+        }
+
+        /* Ensure no page breaks within elements */
+        .experience, .section {
+            page-break-inside: avoid;
+        }
+    }
+
+    /* Mobile styles */
+    @media screen and (max-width: 768px) {
+        .two-column {
+            grid-template-columns: 1fr;
+        }
+
+        .resume-container {
+            padding: 0.5rem;
+            font-size: 10pt;
+        }
+
+        .header h1 {
+            font-size: 16pt;
+        }
+
+        .header h2 {
+            font-size: 11pt;
+        }
+
+        .section-title {
+            font-size: 13pt;
+        }
+    }
+
+    /* Add print note styles */
+    .print-note {
+        text-align: center;
+        color: #666;
+        font-size: 0.9rem;
+        font-style: italic;
+        margin-bottom: 1rem;
+    }
+
+    @media print {
+        .print-note {
+            display: none;
+        }
+    }
+</style>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
