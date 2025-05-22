@@ -2,19 +2,19 @@ import { z, defineCollection } from 'astro:content';
 
 // define a `type` and `schema` for each collection
 const blogCollection = defineCollection({
-    type: 'content',
-    schema: z.object({
-      title: z.string(),
-      pubDate: z.date(),
-      description: z.string(),
-      author: z.string(),
-      image: z.object({
-        url: z.string(),
-        alt: z.string()
-      }).optional(),
-      draft: z.boolean().default(false),  // TODO: use
-      tags: z.array(z.string())
-    })
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    pubDate: z.date(),
+    description: z.string(),
+    author: z.string(),
+    image: z.object({
+      url: z.string(),
+      alt: z.string()
+    }).optional(),
+    draft: z.boolean().default(false),  // TODO: use
+    tags: z.array(z.string())
+  })
 });
 
 const streamCollection = defineCollection({

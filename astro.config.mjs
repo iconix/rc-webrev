@@ -2,12 +2,13 @@
 import { defineConfig } from 'astro/config';
 
 import cloudflare from '@astrojs/cloudflare';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
 import rehypeSlug from 'rehype-slug';
 import svelte from '@astrojs/svelte';
 
 import mdx from '@astrojs/mdx';
+import { visit } from 'unist-util-visit';
+import { toString } from 'hast-util-to-string';
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,25 +26,6 @@ export default defineConfig({
     rehypePlugins: [
       rehypeSlug,
       [
-        rehypeAutolinkHeadings,
-        {
-          behavior: 'prepend',
-          content: {
-            type: 'element',
-            tagName: 'span',
-            properties: { className: ['heading-link'] },
-            children: [
-              {
-                type: 'element',
-                tagName: 'img',
-                properties: { src: '/assets/link.svg' },
-                children: [],
-              },
-            ],
-          },
-        },
-      ],
-      [
         rehypeExternalLinks,
         {
           content: {
@@ -59,7 +41,24 @@ export default defineConfig({
           target: '_blank',
           rel: 'nofollow noopener noreferrer'
         }
-      ]
+      ],
+      function rehypeCollectHeadings() {
+        return (tree) => {
+          const headings = [];
+          visit(tree, 'element', (node) => {
+            if (node.tagName.match(/^h[1-6]$/)) {
+              const text = toString(node);
+              const slug = node.properties.id;
+              headings.push({
+                depth: parseInt(node.tagName[1]),
+                text,
+                slug
+              });
+            }
+          });
+          tree.headings = headings;
+        };
+      }
     ]
   },
 });

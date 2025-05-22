@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import BlogPost from '../components/blog/BlogPost.astro';
+import BlogRoll from '../components/blog/BlogRoll.astro';
 import '../styles/global.css';
 import { getBlogPath } from '../utils/params.ts';
 
@@ -17,7 +17,7 @@ const currentSection = 'blog';
 
 <BaseLayout pageTitle={pageTitle} currentSection={currentSection}>
 	<ul>
-		{sortedPosts.map((post) => <BlogPost url={getBlogPath(post)} title={post.data.title} pubDate={post.data.pubDate} />)}
+		{sortedPosts.map((post) => <BlogRoll url={getBlogPath(post)} title={post.data.title} pubDate={post.data.pubDate} />)}
 	</ul>
 </BaseLayout>
 

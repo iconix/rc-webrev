@@ -3,7 +3,7 @@ import { formatDate } from '../../utils/params.ts';
 
 const { title, url, pubDate } = Astro.props
 
-const formattedDate = formatDate(pubDate);
+const formattedDate = formatDate(pubDate, true);
 ---
 <li><time>{formattedDate}</time><a href={url}>{title}</a></li>
 
@@ -54,15 +54,7 @@ const formattedDate = formatDate(pubDate);
         font-size: 0.875em;   /* slightly smaller than the link */
         white-space: nowrap;  /* keep timestamp on one line */
         flex-shrink: 0;       /* prevent timestamp from shrinking */
-        min-width: 5.5em;     /* ensure consistent width for timestamps */
-    }
-
-    .dark li::before {
-        background-color: var(--dark-secondary-text);
-    }
-
-    .dark li time {
-        color: var(--dark-secondary-text);
+        min-width: 6em;       /* ensure consistent width for timestamps */
     }
 
     /* nested lists */

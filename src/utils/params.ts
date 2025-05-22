@@ -11,7 +11,14 @@ export function getBlogPath(post: CollectionEntry<'blog'>, includeBlog = true) {
     return includeBlog ? `/blog/${pubYear}/${pubMonth}/${slug}` : `/${pubYear}/${pubMonth}/${slug}`;
 }
 
-export function formatDate(date: Date) {
+export function formatDate(date: Date, useVerboseFormat = false) {
+    if (useVerboseFormat) {
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = date.toLocaleString('en-US', { month: 'short' });
+        const year = date.getFullYear();
+        return `${day} ${month} ${year}`;
+    }
+
     return new Intl.DateTimeFormat('en-US', {
         year: 'numeric',
         month: '2-digit',

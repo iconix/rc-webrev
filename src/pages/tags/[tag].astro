@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import BlogPost from '../../components/blog/BlogPost.astro';
+import BlogRoll from '../../components/blog/BlogRoll.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getBlogPath } from '../../utils/params.ts';
 
@@ -23,6 +23,6 @@ const { posts: posts } = Astro.props;
 <BaseLayout pageTitle={tag}>
     <p>Blog posts tagged with <code>{tag}</code></p>
     <ul>
-        {posts.map((post) => <BlogPost url={getBlogPath(post)} title={post.data.title}/>)}
+        {posts.map((post) => <BlogRoll url={getBlogPath(post)} title={post.data.title} pubDate={post.data.pubDate}/>)}
     </ul>
 </BaseLayout>

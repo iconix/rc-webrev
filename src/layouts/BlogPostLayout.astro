@@ -1,25 +1,118 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-const { frontmatter } = Astro.props;
+import PostOutline from '../components/PostOutline.astro';
+import { formatDate } from '../utils/params.ts';
+const { frontmatter, headings = [] } = Astro.props;
 ---
+
 <BaseLayout pageTitle={frontmatter.title} currentSection='blog'>
-    <div class='post-meta'>
-        <p><em>{frontmatter.pubDate.toString().toLowerCase().slice(0,10)}</em></p>
-        <p><em>{frontmatter.description.toLowerCase()}</em></p>
-    </div>
+    <div class='post-container'>
+        <article class='post-content'>
+            <div class='post-meta'>
+                <p class='post-date'><em>{formatDate(frontmatter.pubDate, true).toLowerCase()} &middot; {frontmatter.pubDate.toLocaleDateString('en-US', { weekday: 'short' }).toLowerCase()}</em></p>
+                <p class='post-description'><em>{frontmatter.description.toLowerCase()}</em></p>
+            </div>
 
-    {frontmatter.image && <img src={frontmatter.image.url} width='300' alt={frontmatter.image.alt} />}
+            {frontmatter.image && <img src={frontmatter.image.url} width='300' alt={frontmatter.image.alt} />}
 
-    <slot />
+            <slot />
 
-    <div class='tags'>
-        {frontmatter.tags.map((tag: string) => (
-            <p class='tag'><a href={`/tags/${tag}`}>{tag}</a></p>
-        ))}
+            <div class='tags'>
+                {frontmatter.tags.map((tag: string) => (
+                    <p class='tag'><a href={`/tags/${tag}`}>{tag}</a></p>
+                ))}
+            </div>
+        </article>
+
+        <PostOutline headings={headings} />
     </div>
 </BaseLayout>
 
+<script>
+    // Handle both outline links and direct header links
+    function handleScroll(e: Event) {
+        const target = e.target as HTMLElement;
+        const link = target.closest('a');
+        if (!link) return;
+
+        const href = link.getAttribute('href');
+        if (!href?.startsWith('#')) return;
+
+        e.preventDefault();
+        const targetElement = document.querySelector(href);
+        if (!targetElement) return;
+
+        // Close mobile outline if it's open
+        const outline = document.querySelector('.post-outline');
+        if (outline?.classList.contains('active')) {
+            outline.classList.remove('active');
+        }
+
+        // Get the header height for offset
+        const header = document.querySelector('header');
+        const headerHeight = header?.offsetHeight || 0;
+        const offset = 20; // Additional padding for comfort
+
+        // Calculate the target position
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = targetPosition - headerHeight - offset;
+
+        // Scroll to the element with offset
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+
+        // Update URL without page reload
+        history.pushState(null, '', href);
+    }
+
+    // Add click handlers to all header links
+    document.addEventListener('DOMContentLoaded', () => {
+        const headerLinks = document.querySelectorAll('.heading-link');
+        headerLinks.forEach(link => {
+            link.addEventListener('click', handleScroll);
+        });
+
+        // Also handle outline links
+        const outlineLinks = document.querySelectorAll('.post-outline a');
+        outlineLinks.forEach(link => {
+            link.addEventListener('click', handleScroll);
+        });
+
+        // Handle direct URL hash navigation on page load
+        if (window.location.hash) {
+            const targetElement = document.querySelector(window.location.hash);
+            if (targetElement) {
+                // Small delay to ensure header height is calculated correctly
+                setTimeout(() => {
+                    const header = document.querySelector('header');
+                    const headerHeight = header?.offsetHeight || 0;
+                    const offset = 20;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = targetPosition - headerHeight - offset;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }, 100);
+            }
+        }
+    });
+</script>
+
 <style>
+    .post-container {
+        display: grid;
+        grid-template-columns: 1fr 250px;
+        gap: 2rem;
+        align-items: start;
+    }
+
+    .post-content {
+        min-width: 0; /* Prevents content from overflowing */
+    }
+
     .post-meta {
         margin-top: 0;
         padding-bottom: 0.5em;
@@ -27,6 +120,16 @@ const { frontmatter } = Astro.props;
 
     .post-meta p {
         margin: 0;
+    }
+
+    .post-date {
+        font-size: 0.9em;
+        color: var(--secondary-text);
+    }
+
+    .post-description {
+        font-size: 1.1em;
+        margin-top: 0.25em;
     }
 
     :global(main) {
@@ -63,17 +166,10 @@ const { frontmatter } = Astro.props;
         text-decoration: none;
     }
 
-    .dark .tags {
-        border-top-color: var(--dark-secondary-bg);
-    }
-
-    .dark .tag a {
-        background: var(--dark-secondary-bg);
-        color: var(--dark-secondary-text);
-    }
-
-    .dark .tag a:hover {
-        background: var(--dark-hover-bg);
-        color: var(--dark-primary-text);
+    /* Responsive design */
+    @media (max-width: 1024px) {
+        .post-container {
+            grid-template-columns: 1fr;
+        }
     }
 </style>

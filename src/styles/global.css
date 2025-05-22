@@ -1,12 +1,13 @@
 /* variables */
 :root {
-    --primary-bg: #fefefa;      /* subtle, warm yellow */
+    --primary-bg: #fafaf5;      /* soft, neutral yellow */
     --primary-text: #0f172a;
-    --secondary-bg: #fdfdf0;
+    --secondary-bg: #f5f5f0;    /* cooler secondary background */
     --secondary-text: #9b9b9b;
-    --hover-bg: #faf5e1;
+    --hover-bg: #f0f0e8;
     --active-bg: #fde047;
     --accent-color: #0d9488;    /* deeper teal for good contrast in light mode */
+    scroll-behavior: smooth;     /* enable smooth scrolling for the whole page */
 
     /* dark mode colors */
     --dark-primary-bg: #091838;
@@ -15,7 +16,6 @@
     --dark-secondary-text: #9ca3af;
     --dark-hover-bg: #2d3748;
     --dark-active-bg: #394760;
-    --dark-accent-color: #10b981;  /* brighter green for vibrant contrast in dark mode */
 }
 
 .dark {
@@ -25,7 +25,6 @@
     --secondary-text: var(--dark-secondary-text);
     --hover-bg: var(--dark-hover-bg);
     --active-bg: var(--dark-active-bg);
-    --accent-color: var(--dark-accent-color);
 }
 
 /* base styles */
@@ -48,7 +47,7 @@ body {
     background: linear-gradient(
         135deg,
         var(--primary-bg) 0%,
-        #fff 100%
+        #fcfcf7 100%
     );
     line-height: 1.5;
     min-height: 100vh;
@@ -237,13 +236,26 @@ img {
 }
 
 /* heading link icons */
+.heading-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    scroll-margin-top: 2rem;  /* add margin to scroll position for better positioning */
+}
 
 .heading-link img {
     margin: 0;
     margin-left: -40px;
     padding-right: 8px;
     height: 1rem;
-    width: 1rem
+    width: 1rem;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.heading-link:hover img {
+    opacity: 1;
 }
 
 /* specifically here for embedding p5.js sketches */

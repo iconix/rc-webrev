@@ -63,7 +63,12 @@ $ npm install typed.js
 
 social media icons
 ```bash
-$  npm install iconify-icon
+$ npm install iconify-icon
+```
+
+blog post outline support
+```bash
+$ npm install rehype-slug hast-util-to-string unist-util-visit
 ```
 
 deploying to cloudflare pages
