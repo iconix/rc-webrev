@@ -1,6 +1,6 @@
 ---
-pubDate: 2025-01-20T12:16:00-05:00
+pubDate: 2025-05-22T00:48:00-05:00
 ---
-I am in batch at the [Recurse Center](https://www.recurse.com/), rediscovering the joy of programming!
+I am wrapping up parental leave and hunting for my next role, feeling professionally reinvigorated and refreshed!
 
-Currently while at RC, I am migrating [my old personal site](https://iconix.github.io/) to this new site, exploring game development + llms, and braving the snow and bitter cold 🥶
+While preparing for my return to work, I am migrating [my old personal site](https://iconix.github.io/) to this new one, building a lil scheduling app for my fam, and battling spring allergies 🤧
