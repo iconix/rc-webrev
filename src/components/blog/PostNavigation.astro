@@ -1,0 +1,104 @@
+---
+interface Props {
+    prevPost: { title: string; url: string; } | null;
+    nextPost: { title: string; url: string; } | null;
+}
+
+const { prevPost, nextPost } = Astro.props;
+---
+
+<nav class='post-navigation'>
+    <div class='nav-grid'>
+        <div class='nav-prev'>
+            {prevPost ? (
+                <a href={prevPost.url} class='nav-link prev-post'>
+                    <span class='nav-label'>previous post</span>
+                    <span class='nav-title'>{prevPost.title}</span>
+                </a>
+            ) : <div class='nav-placeholder'></div>}
+        </div>
+        <div class='nav-next'>
+            {nextPost ? (
+                <a href={nextPost.url} class='nav-link next-post'>
+                    <span class='nav-label'>next post</span>
+                    <span class='nav-title'>{nextPost.title}</span>
+                </a>
+            ) : <div class='nav-placeholder'></div>}
+        </div>
+    </div>
+</nav>
+
+<style>
+    .post-navigation {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--secondary-bg);
+    }
+
+    .nav-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .nav-prev {
+        grid-column: 1;
+    }
+
+    .nav-next {
+        grid-column: 2;
+    }
+
+    .nav-link {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        background: var(--secondary-bg);
+        border-radius: 8px;
+        text-decoration: none;
+        color: var(--primary-text);
+        transition: all 0.2s ease;
+    }
+
+    .nav-link:hover {
+        background: var(--hover-bg);
+        text-decoration: none;
+    }
+
+    .next-post {
+        text-align: right;
+    }
+
+    .nav-label {
+        font-size: 0.875rem;
+        color: var(--secondary-text);
+        margin-bottom: 0.25rem;
+    }
+
+    .nav-title {
+        font-weight: 500;
+    }
+
+    .nav-placeholder {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+        .nav-grid {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .nav-prev {
+            grid-column: 1;
+        }
+
+        .nav-next {
+            grid-column: 1;
+        }
+
+        .next-post {
+            text-align: left;
+        }
+    }
+</style>

@@ -6,15 +6,40 @@ import { getBlogPath } from '../../utils/params.ts';
 
 export async function getStaticPaths() {
     const posts = await getCollection('blog');
-    return posts.map((post: CollectionEntry<'blog'>) => ({
-        params: { slug: getBlogPath(post, false) },
-        props: { post },
-    }));
+    const sortedPosts = posts.sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) =>
+        b.data.pubDate.getTime() - a.data.pubDate.getTime()
+    );
+
+    return sortedPosts.map((post: CollectionEntry<'blog'>, index: number) => {
+        const prevPost = index < sortedPosts.length - 1 ? {
+            title: sortedPosts[index + 1].data.title,
+            url: getBlogPath(sortedPosts[index + 1])
+        } : null;
+
+        const nextPost = index > 0 ? {
+            title: sortedPosts[index - 1].data.title,
+            url: getBlogPath(sortedPosts[index - 1])
+        } : null;
+
+        return {
+            params: { slug: getBlogPath(post, false) },
+            props: { post, prevPost, nextPost },
+        };
+    });
 }
 
-const { post } = Astro.props as { post: CollectionEntry<'blog'> };
+const { post, prevPost, nextPost } = Astro.props as {
+    post: CollectionEntry<'blog'>;
+    prevPost: { title: string; url: string; } | null;
+    nextPost: { title: string; url: string; } | null;
+};
 const { Content, headings } = await post.render();
 ---
-<BlogPostLayout frontmatter={post.data} headings={headings || []}>
+<BlogPostLayout
+    frontmatter={post.data}
+    headings={headings || []}
+    prevPost={prevPost}
+    nextPost={nextPost}
+>
     <Content />
 </BlogPostLayout>

@@ -1,8 +1,9 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import PostOutline from '../components/PostOutline.astro';
+import PostNavigation from '../components/blog/PostNavigation.astro';
 import { formatDate } from '../utils/params.ts';
-const { frontmatter, headings = [] } = Astro.props;
+const { frontmatter, headings = [], prevPost, nextPost } = Astro.props;
 ---
 
 <BaseLayout pageTitle={frontmatter.title} currentSection='blog'>
@@ -22,6 +23,8 @@ const { frontmatter, headings = [] } = Astro.props;
                     <p class='tag'><a href={`/tags/${tag}`}>{tag}</a></p>
                 ))}
             </div>
+
+            <PostNavigation prevPost={prevPost} nextPost={nextPost} />
         </article>
 
         <PostOutline headings={headings} />
