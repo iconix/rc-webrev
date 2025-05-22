@@ -69,6 +69,8 @@
     min-height: 4rem;
     /* ensure container is always present */
     display: block;
+    /* add some breathing room */
+    margin: 1.5em 0;
   }
 
   .typing-wrapper {
@@ -80,10 +82,20 @@
     min-height: 1.5em;
     /* vertical alignment */
     vertical-align: bottom;
+    /* add subtle color treatment */
+    color: var(--accent-color);
   }
 
   h3 {
     /* ensure consistent height */
     line-height: 1.5;
+    /* match blog's typography scale */
+    font-size: 1.75em;
+    /* maintain the semi-bold weight */
+    font-weight: 500;
+    /* add some letter spacing for better readability */
+    letter-spacing: -0.01em;
+    /* ensure proper color inheritance */
+    color: inherit;
   }
 </style>
